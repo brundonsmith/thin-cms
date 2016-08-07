@@ -1,0 +1,48 @@
+
+:host {
+  display:flex;
+  flex-direction:column;
+  background-color:#eee;
+}
+
+:host .section-label {
+  padding:10px 20px;
+  font-size:22px;
+  -webkit-user-select:none;
+  cursor:pointer;
+  -webkit-appearance:none;
+  background-color:#333;
+  border:none;
+  color:#eee;
+  text-align:left;
+}
+:host .section-label:focus {
+  outline:none;
+}
+:host .section-label i {
+  font-weight:bold;
+  margin-right:5px;
+}
+:host.expanded .section-label i {
+  transform:rotateZ(-180deg);
+}
+
+:host a {
+  display:block;
+  color:#333;
+  background-color:#eee;
+  text-decoration:none;
+  padding-right:10px;
+  padding-left:45px;
+  height:0px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+:host a:visited {
+  color:#333;
+}
+:host.expanded a {
+  padding-top:10px;
+  padding-bottom:10px;
+  height:40px;
+}
