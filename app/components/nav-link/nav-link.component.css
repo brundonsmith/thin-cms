@@ -1,0 +1,17 @@
+
+:host a {
+  display:block;
+  padding:10px 20px;
+  font-size:22px;
+  -webkit-user-select:none;
+  cursor:pointer;
+  -webkit-appearance:none;
+  background-color:#333;
+  border:none;
+  color:#eee;
+  text-align:left;
+  text-decoration:none;
+}
+:host a i {
+  margin-right:5px;
+}

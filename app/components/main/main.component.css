@@ -2,5 +2,5 @@
 .main-container {
   display:flex;
   flex-direction:row;
-  height:calc(100vh - 80px);
+  height:calc(100vh - 100px);
 }
