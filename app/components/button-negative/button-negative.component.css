@@ -2,7 +2,7 @@
 :host {
   display:inline-block;
   border-radius:3px;
-  background-color:#5692ff;
+  background-color:#ff2f2f;
   color:#eee;
   min-width:250px;
   padding:20px;
@@ -13,6 +13,6 @@
   transition-duration:0s;
 }
 :host:active {
-  background-color:#477ad6;
+  background-color:#c32424;
   box-shadow:0px 0px 5px #888 inset;
 }
