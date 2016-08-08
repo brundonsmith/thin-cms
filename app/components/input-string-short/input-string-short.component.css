@@ -1,0 +1,16 @@
+
+:host {
+  display:inline-block;
+  vertical-align: middle;
+}
+
+input {
+  -webkit-appearance:none;
+  border:1px solid #333;
+  font-size:42px;
+  font-family:Roboto;
+  padding:5px;
+}
+input:focus {
+  outline:none;
+}

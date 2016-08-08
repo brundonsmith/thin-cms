@@ -5,35 +5,27 @@ const noop = () => {
 };
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => InputNumberComponent),
+    useExisting: forwardRef(() => InputStringShortComponent),
     multi: true
 };
 
 @Component({
   moduleId: module.id,
-  selector: 'input-number',
-  templateUrl: 'input-number.component.html',
-  styleUrls: ['input-number.component.css'],
+  selector: 'input-string-short',
+  templateUrl: 'input-string-short.component.html',
+  styleUrls: ['input-string-short.component.css'],
   inputs: ['step', 'size'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class InputNumberComponent implements ControlValueAccessor {
+export class InputStringShortComponent implements ControlValueAccessor {
 
-  public step: number = 1;
-  public size: number = 4;
+  public size: number = 20;
 
-  onClickUp() {
-    this.value = this.value + +this.step;
-  }
-  onClickDown() {
-    this.value = this.value - this.step;
-  }
-  
 
   ////// To make ngModel work
 
   //The internal data model
-  private innerValue: number = '';
+  private innerValue: string;
 
   //Placeholders for the callbacks which are later providesd
   //by the Control Value Accessor
