@@ -2,12 +2,14 @@
 <nav-top></nav-top>
 <div class="main-container">
   <nav-left>
+    <nav-link [title]="'Home'" [routerLink]="'/'" [icon]="'home'"></nav-link>
+    <nav-divider></nav-divider>
     <nav-section [title]="'Posts'">
       <a href="#">All Posts</a>
       <a href="#">New Post</a>
       <a href="#">Tags</a>
     </nav-section>
-    <nav-link [title]="'Settings'" [href]="'#'" [icon]="'gear'"></nav-link>
+    <nav-link [title]="'Settings'" [routerLink]="'/settings'" [icon]="'gear'"></nav-link>
   </nav-left>
   <router-outlet></router-outlet>
 </div>

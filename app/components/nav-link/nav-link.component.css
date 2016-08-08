@@ -15,3 +15,11 @@
 :host a i {
   margin-right:5px;
 }
+:host a,
+:host a i {
+  text-shadow: none;
+}
+:host a:hover,
+:host a:hover i {
+  text-shadow: 0px 0px 3px #eee;
+}
