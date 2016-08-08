@@ -1,0 +1,12 @@
+
+<div class="container">
+  <input type="text" [(ngModel)]="value" (blur)="onBlur()" [size]="size" [step]="step">
+  <div class="buttons">
+    <div class="up" (click)="onClickUp()">
+      <i class="fa fa-angle-up"></i>
+    </div>
+    <div class="down" (click)="onClickDown()">
+      <i class="fa fa-angle-down"></i>
+    </div>
+  </div>
+</div>
