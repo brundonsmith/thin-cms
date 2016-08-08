@@ -1,0 +1,18 @@
+
+:host {
+  display:inline-block;
+  border-radius:3px;
+  background-color:#5692ff;
+  color:#eee;
+  min-width:250px;
+  padding:20px;
+  text-align: center;
+  font-size: 20px;
+  -webkit-user-select:none;
+  cursor:default;
+  transition-duration:0s;
+}
+:host:active {
+  background-color:#73cbff;
+  box-shadow:0px 0px 5px #888 inset;
+}

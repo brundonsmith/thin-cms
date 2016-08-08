@@ -1,5 +1,5 @@
 
-<a [routerLink]="routerLink">
+<a [routerLink]="routerLink" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">
   <i [class]="'fa fa-' + icon"></i>
   {{title}}
 </a>

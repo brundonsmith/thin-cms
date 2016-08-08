@@ -28,12 +28,12 @@ export class InputNumberComponent implements ControlValueAccessor {
   onClickDown() {
     this.value = this.value - this.step;
   }
-  
+
 
   ////// To make ngModel work
 
   //The internal data model
-  private innerValue: number = '';
+  private innerValue: number;
 
   //Placeholders for the callbacks which are later providesd
   //by the Control Value Accessor

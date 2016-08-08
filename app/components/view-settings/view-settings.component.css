@@ -1,4 +1,16 @@
 :host {
-  display:block;
+  display:flex;
+  flex-direction:column;
+  align-items: flex-start;
   padding:40px;
+}
+
+.buttons {
+  margin-top:50px;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-start;
+}
+.buttons > * {
+  margin-right:15px;
 }

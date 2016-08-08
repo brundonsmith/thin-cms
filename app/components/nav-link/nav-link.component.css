@@ -11,6 +11,10 @@
   color:#eee;
   text-align:left;
   text-decoration:none;
+  border-right: 0px solid #5692ff;
+}
+:host a.active {
+  border-width:6px;
 }
 :host a i {
   margin-right:5px;

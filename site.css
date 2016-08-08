@@ -10,3 +10,30 @@ body {
 .heading-font {
   font-family:"Poppins", sans-serif;
 }
+
+.view-heading {
+  display:block;
+  width:100%;
+  font-size: 48px;
+  font-family: Poppins;
+  margin-bottom: 50px;
+  text-transform:lowercase;
+}
+.view-heading::after {
+  content:'';
+  display:block;
+  position:relative;
+  border-top:1px solid #b3b3b3;
+}
+
+.form-field {
+  display:flex;
+  width:100%;
+  max-width:600px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.form-field .label {
+  font-size:32px;
+}

@@ -2,5 +2,9 @@
 .main-container {
   display:flex;
   flex-direction:row;
-  height:calc(100vh - 100px);
+  height:calc(100vh - 57px);
+}
+
+.view-container {
+  width:calc(100% - 200px);
 }
