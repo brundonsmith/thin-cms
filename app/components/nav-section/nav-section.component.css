@@ -35,7 +35,23 @@
   transform:rotateZ(-180deg);
 }
 
-:host a {
+:host .links {
+  position:relative;
+  overflow:hidden;
+}
+:host .links::after {
+  content:'';
+  position:absolute;
+  height:100%;
+  width:200%;
+  top:0%;
+  left:-50%;
+  background:transparent;
+  box-shadow:0px 0px 10px #111 inset;
+  pointer-events: none;
+}
+
+:host .links a {
   display:block;
   color:#333;
   background-color:#eee;
@@ -46,10 +62,10 @@
   overflow:hidden;
   text-overflow: ellipsis;
 }
-:host a:visited {
+:host .links a:visited {
   color:#333;
 }
-:host.expanded a {
+:host.expanded .links a {
   padding-top:10px;
   padding-bottom:10px;
   height:40px;
