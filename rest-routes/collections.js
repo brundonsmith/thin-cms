@@ -17,6 +17,7 @@ function checkForMissingParameter( req, res, paramName ) {
 module.exports = {
 	allCollections: function( req, res ) {
 		var collections = [];
+
 		for(var modelName in mongooseSchemas) {
 			collections.push(modelName);
 		}

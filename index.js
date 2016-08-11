@@ -141,5 +141,9 @@ var State = require('./test-models/State').State;
 var Address = require('./test-models/Address').Address;
 var Subscription = require('./test-models/Subscription').Subscription;
 
-module.exports.init('localhost:27017', [ State.schema, Address.schema, Subscription.schema ]);
+module.exports.init('localhost:27017', {
+  State: State.schema,
+  Address: Address.schema,
+  Subscription: Subscription.schema
+});
 //***************************************
