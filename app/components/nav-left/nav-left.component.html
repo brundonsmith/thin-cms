@@ -1,2 +1,8 @@
 
 <ng-content></ng-content>
+
+<nav-section *ngFor="let collection of collections" [title]="collection">
+  <a href="#">All {{collection}}s</a>
+  <a href="#">New {{collection}}</a>
+  <a href="#">Tags</a>
+</nav-section>
