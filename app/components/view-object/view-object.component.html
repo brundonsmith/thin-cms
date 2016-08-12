@@ -15,5 +15,5 @@
   </div>
 </template>
 
-<button-primary [label]="'Save Changes'"></button-primary>
-<button-neutral [label]="'Reset Changes'"></button-neutral>
+<button-primary [label]="'Save Changes'" (click)="save()"></button-primary>
+<button-neutral [label]="'Reset Changes'" (click)="reset()"></button-neutral>

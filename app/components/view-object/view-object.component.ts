@@ -44,9 +44,20 @@ export class ViewObjectComponent {
         .then( modelSchema => this.modelSchema = modelSchema );
 
       this.crudService.read(this.modelName, this.objectId)
-        .then( object => this.object = object );;
+        .then( object => this.object = object );
 
     });
+  }
+
+  save() {
+    this.crudService.update(this.modelName, this.objectId, this.object).then( () => {
+      // toast
+    });
+  }
+
+  reset() {
+    this.crudService.read(this.modelName, this.objectId)
+      .then( object => this.object = object );
   }
 
   public get pathsArray() {
