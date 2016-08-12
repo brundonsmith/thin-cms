@@ -61,9 +61,13 @@
   height:0px;
   overflow:hidden;
   text-overflow: ellipsis;
+  border-right: 0px solid #5692ff;
 }
 :host .links a:visited {
   color:#333;
+}
+:host .links a.active {
+  border-width:6px;
 }
 :host.expanded .links a {
   padding-top:10px;

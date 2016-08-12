@@ -14,19 +14,19 @@ import { ButtonNeutralComponent } from '../button-neutral/button-neutral.compone
 
 @Component({
   moduleId: module.id,
-  selector: 'view-object',
-  templateUrl: 'view-object.component.html',
-  styleUrls: ['view-object.component.css'],
+  selector: 'view-new-object',
+  templateUrl: 'view-new-object.component.html',
+  styleUrls: ['view-new-object.component.css'],
   directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent ],
   providers: [ CollectionsService, CrudService ],
   pipes: [ UnCamelPipe ]
 })
-export class ViewObjectComponent {
+export class ViewNewObjectComponent {
 
   public modelName: string;
   public objectId: string;
   public modelSchema: any;
-  public object: any;
+  public object: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -38,15 +38,28 @@ export class ViewObjectComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.modelName = params['modelName'];
-      this.objectId = params['objectId'];
 
       this.crudService.readSchema(this.modelName)
         .then( modelSchema => this.modelSchema = modelSchema );
-
-      this.crudService.read(this.modelName, this.objectId)
-        .then( object => this.object = object );;
-
     });
+  }
+
+  save() {
+    this.crudService.create(this.modelName)
+      .then( newObject => {
+        this.objectId = (<any>newObject)._id;
+
+        // merge user-created properties into new object, then keep the result
+        for(var key in this.object) {
+          newObject[key] = this.object[key];
+        }
+        this.object = newObject;
+
+        this.crudService.update(this.modelName, this.objectId, this.object).then( () => {
+          this.router.navigate([this.modelName, this.objectId]);
+        });
+      });
+
   }
 
   public get pathsArray() {
@@ -59,7 +72,7 @@ export class ViewObjectComponent {
         }
       }
     }
-console.log(paths);
+
     return paths;
   }
 }

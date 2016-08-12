@@ -27,14 +27,12 @@ export class CrudService {
   update(modelName, objectId, data) {
     return this.http.put(this.apiBaseUrl + '/' + modelName + '/' + objectId, data, { withCredentials: true })
                .toPromise()
-               .then(response => response.json())
                .catch(this.handleError);
   }
 
   delete(modelName, objectId) {
     return this.http.delete(this.apiBaseUrl + '/' + modelName + '/' + objectId, { withCredentials: true })
                .toPromise()
-               .then(response => response.json())
                .catch(this.handleError);
   }
 

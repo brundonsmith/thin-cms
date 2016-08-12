@@ -40,9 +40,17 @@ export class ViewCollectionComponent {
         .then( modelSchema => this.modelSchema = modelSchema );
 
       this.collectionsService.search(this.modelName, {})
-        .then( objects => this.objects = objects );;
+        .then( objects => this.objects = objects );
 
     });
+  }
+
+  delete(objectId) {
+    this.crudService.delete(this.modelName, objectId)
+      .then(() => {
+        this.collectionsService.search(this.modelName, {})
+          .then( objects => this.objects = objects );
+      });
   }
 
   public get pathsArray() {

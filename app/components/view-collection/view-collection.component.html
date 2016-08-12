@@ -7,14 +7,14 @@
       Actions
     </div>
     <div class="cell" *ngFor="let path of pathsArray">
-      {{ path | unCamel }}
+      {{ path.path | unCamel }}
     </div>
   </div>
 
   <div class="row" *ngFor="let object of objects">
     <div class="cell buttons">
-      <i class="fa fa-edit" [routerLink]="'/' + modelName + '/' + object._id"></i>
-      <i class="fa fa-remove"></i>
+      <i class="fa fa-pencil" [routerLink]="'/' + modelName + '/' + object._id"></i>
+      <i class="fa fa-trash-o" (click)="delete(object._id)"></i>
     </div>
     <div class="cell" *ngFor="let path of pathsArray" [title]="object[path]">
       {{ object[path.path] }}
