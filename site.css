@@ -25,14 +25,19 @@ body {
   position:relative;
   border-top:1px solid #b3b3b3;
 }
+.view-heading .object-id {
+  font-family:monospace;
+  font-size:42px;
+}
 
 .form-field {
   display:flex;
   width:100%;
-  max-width:600px;
+  max-width:1000px;
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom:20px;
 }
 .form-field .label {
   font-size:32px;

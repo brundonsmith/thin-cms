@@ -1,16 +1,23 @@
-<div class="view-heading">{{modelName}}s</div>
+<div class="view-heading">{{ modelName | pluralize }}</div>
 
 <div class="table">
 
   <div class="row heading-row">
+    <div class="cell buttons">
+      Actions
+    </div>
     <div class="cell" *ngFor="let path of pathsArray">
-      {{ path }}
+      {{ path | unCamel }}
     </div>
   </div>
 
-  <div class="row" *ngFor="let object of objects" data-object-id="object._id">
+  <div class="row" *ngFor="let object of objects">
+    <div class="cell buttons">
+      <i class="fa fa-edit" [routerLink]="'/' + modelName + '/' + object._id"></i>
+      <i class="fa fa-remove"></i>
+    </div>
     <div class="cell" *ngFor="let path of pathsArray" [title]="object[path]">
-      {{ object[path] }}
+      {{ object[path.path] }}
     </div>
   </div>
 

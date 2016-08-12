@@ -1,0 +1,19 @@
+<div class="view-heading">editing {{modelName}}: <span class="object-id">{{objectId}}</span></div>
+
+<template ngFor let-path [ngForOf]="pathsArray">
+  <div class="form-field" *ngIf="path.instance == 'String' && object">
+    <div class="label">{{path.path | unCamel}}</div>
+    <input-string-short [(ngModel)]="object[path.path]"></input-string-short>
+  </div>
+  <div class="form-field" *ngIf="path.instance == 'Number' && object">
+    <div class="label">{{path.path | unCamel}}</div>
+    <input-number [(ngModel)]="object[path.path]"></input-number>
+  </div>
+  <div class="form-field" *ngIf="path.instance == 'Boolean' && object">
+    <div class="label">{{path.path | unCamel}}</div>
+    <input-boolean [(ngModel)]="object[path.path]"></input-boolean>
+  </div>
+</template>
+
+<button-primary [label]="'Save Changes'"></button-primary>
+<button-neutral [label]="'Reset Changes'"></button-neutral>

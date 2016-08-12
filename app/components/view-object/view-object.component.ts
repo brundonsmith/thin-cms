@@ -5,24 +5,28 @@ import { CanActivate, Router,
          RouterStateSnapshot }    from '@angular/router';
 import { CollectionsService } from '../../services/collections.service';
 import { CrudService } from '../../services/crud.service';
-import { PluralizePipe } from '../../pipes/pluralize.pipe';
+import { InputBooleanComponent } from '../input-boolean/input-boolean.component';
+import { InputNumberComponent } from '../input-number/input-number.component';
+import { InputStringShortComponent } from '../input-string-short/input-string-short.component';
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { ButtonPrimaryComponent } from '../button-primary/button-primary.component';
+import { ButtonNeutralComponent } from '../button-neutral/button-neutral.component';
 
 @Component({
   moduleId: module.id,
-  selector: 'view-collection',
-  templateUrl: 'view-collection.component.html',
-  styleUrls: ['view-collection.component.css'],
-  directives: [ ROUTER_DIRECTIVES ],
+  selector: 'view-object',
+  templateUrl: 'view-object.component.html',
+  styleUrls: ['view-object.component.css'],
+  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent ],
   providers: [ CollectionsService, CrudService ],
-  pipes: [ PluralizePipe, UnCamelPipe ]
+  pipes: [ UnCamelPipe ]
 })
-export class ViewCollectionComponent {
+export class ViewObjectComponent {
 
   public modelName: string;
+  public objectId: string;
   public modelSchema: any;
-  public objects: Array<any>;
+  public object: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,13 +38,13 @@ export class ViewCollectionComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.modelName = params['modelName'];
-
+      this.objectId = params['objectId'];
 
       this.crudService.readSchema(this.modelName)
         .then( modelSchema => this.modelSchema = modelSchema );
 
-      this.collectionsService.search(this.modelName, {})
-        .then( objects => this.objects = objects );;
+      this.crudService.read(this.modelName, this.objectId)
+        .then( object => this.object = object );;
 
     });
   }

@@ -2,7 +2,7 @@
 <ng-content></ng-content>
 
 <nav-section *ngFor="let collection of collections" [title]="collection">
-  <a [routerLink]="'/' + collection" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">All {{collection}}s</a>
+  <a [routerLink]="'/' + collection" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">All {{ collection | pluralize }}</a>
   <a [routerLink]="'/' + collection + '/new'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }">New {{collection}}</a>
   <a href="#">Tags</a>
 </nav-section>
