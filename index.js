@@ -44,8 +44,39 @@ module.exports = {
 
     //************ TESTING *****************
     app.use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+      res.header("Access-Control-Allow-Credentials", "true");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-XSRF-TOKEN");
+
+      if(!req.sessionID || !mongooseConnections[req.sessionID]) {
+        console.log('CREATING MONGOOSE CONNECT');
+        var newConnection = mongoose.createConnection(app.get('dbpath'),
+          {
+            user:'admin2',
+            pass:'pass'
+          },
+          function(err) {
+            if(err) {
+              console.log('ERROR LOGGING INTO MONGO');
+            }
+          }
+        );
+
+        console.log('MONGOOSE CONNECT ATTEMPT STARTED');
+
+        newConnection.once('connected', function(){
+          console.log('MONGOOSE CONNECTED');
+          mongooseConnections[req.sessionID] = {
+            connection: newConnection,
+            models: {}
+          };
+        });
+        newConnection.once('error', function(err){
+          console.log('MONGOOSE FAILED TO CONNECT:');
+          console.log(err);
+        });
+      }
+
       next();
     });
     //***************************************
@@ -85,7 +116,7 @@ module.exports = {
     // data routes
     app.get('/favicon.ico', function(req, res){ res.status(204).send(); } );
     app.get('/api/collections', routes.collections.allCollections);
-    app.get('/api/search', routes.collections.search);
+    app.get('/api/search/:modelName', routes.collections.search);
 
     app.post('/api/:modelName', routes.crud.create);
     app.get('/api/:modelName/:objectId', routes.crud.read);
@@ -94,29 +125,7 @@ module.exports = {
     app.get('/api/:modelName', routes.crud.readSchema);
 
     app.get('/*', function(req, res) {
-
-          //************ TESTING *****************
-          var newConnection = mongoose.createConnection(app.get('dbpath'), {
-              user: 'admin',
-              pass: 'pass'
-            },
-            function(err) {
-              if(err) {
-                res.send('Error logging in to mongo');
-              }
-            }
-          );
-
-          newConnection.once('connected', function(){
-            mongooseConnections[req.sessionID] = {
-              connection: newConnection,
-              models: {}
-            };
-            res.sendFile(__dirname + '/index.html');
-          });
-          //***************************************
-
-      //res.sendFile(__dirname + '/index.html');
+      res.sendFile(__dirname + '/index.html');
     });
 
     // process
@@ -141,7 +150,7 @@ var State = require('./test-models/State').State;
 var Address = require('./test-models/Address').Address;
 var Subscription = require('./test-models/Subscription').Subscription;
 
-module.exports.init('localhost:27017', {
+module.exports.init('ds059375.mongolab.com:59375/crate', {
   State: State.schema,
   Address: Address.schema,
   Subscription: Subscription.schema

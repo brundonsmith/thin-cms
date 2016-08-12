@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { NavSectionComponent } from '../nav-section/nav-section.component';
 import { CollectionsService } from '../../services/collections.service';
 
@@ -7,7 +8,7 @@ import { CollectionsService } from '../../services/collections.service';
   selector: 'nav-left',
   templateUrl: 'nav-left.component.html',
   styleUrls: ['nav-left.component.css'],
-  directives: [ NavSectionComponent ],
+  directives: [ ROUTER_DIRECTIVES, NavSectionComponent ],
   providers: [ CollectionsService ]
 })
 export class NavLeftComponent implements OnInit {

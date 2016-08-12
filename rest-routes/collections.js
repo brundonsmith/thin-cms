@@ -30,8 +30,8 @@ module.exports = {
 		// TODO: validation
 
 		// create model
-		if(typeof mongooseConnections[req.sessionID].models[req.query.modelName] === 'undefined') {
-			mongooseConnections[req.sessionID].models[req.query.modelName] = mongooseConnections[req.sessionID].connection.model(req.query.modelName, mongooseSchemas[req.query.modelName]);
+		if(typeof mongooseConnections[req.sessionID].models[req.params.modelName] === 'undefined') {
+			mongooseConnections[req.sessionID].models[req.params.modelName] = mongooseConnections[req.sessionID].connection.model(req.params.modelName, mongooseSchemas[req.params.modelName]);
 		}
 
 		var findArgs = {};
@@ -40,7 +40,7 @@ module.exports = {
 			findArgs.$text = { $regex: '.*' + req.query.searchString + '.*', $options: 'im' };//$search : '^' + req.query.searchString + '$' };
 
 		}
-		var query = mongooseConnections[req.sessionID].models[req.query.modelName].find(findArgs);
+		var query = mongooseConnections[req.sessionID].models[req.params.modelName].find(findArgs);
 
 		if(req.query.sortField) {
 			var sortObj = {};

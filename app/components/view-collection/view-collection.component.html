@@ -1,0 +1,17 @@
+<div class="view-heading">{{modelName}}s</div>
+
+<div class="table">
+
+  <div class="row heading-row">
+    <div class="cell" *ngFor="let path of pathsArray">
+      {{ path }}
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let object of objects" data-object-id="object._id">
+    <div class="cell" *ngFor="let path of pathsArray" [title]="object[path]">
+      {{ object[path] }}
+    </div>
+  </div>
+
+</div>

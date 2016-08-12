@@ -120,7 +120,6 @@ module.exports = {
 	},
 
 	readSchema: function( req, res ) {
-
 		// create model
 		if(typeof mongooseConnections[req.sessionID].models[req.params.modelName] === 'undefined') {
 			mongooseConnections[req.sessionID].models[req.params.modelName] = mongooseConnections[req.sessionID].connection.model(req.params.modelName, mongooseSchemas[req.params.modelName]);
