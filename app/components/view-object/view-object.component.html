@@ -1,5 +1,7 @@
 <div class="view-heading">editing {{modelName}}: <span class="object-id">{{objectId}}</span></div>
 
+<loader #loader ></loader>
+
 <template ngFor let-path [ngForOf]="pathsArray">
   <div class="form-field" *ngIf="path.instance == 'String' && object">
     <div class="label">{{path.path | unCamel}}</div>

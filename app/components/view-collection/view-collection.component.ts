@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CanActivate, Router,
          ActivatedRoute,
          ActivatedRouteSnapshot,
@@ -8,13 +8,14 @@ import { CrudService } from '../../services/crud.service';
 import { PluralizePipe } from '../../pipes/pluralize.pipe';
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   moduleId: module.id,
   selector: 'view-collection',
   templateUrl: 'view-collection.component.html',
   styleUrls: ['view-collection.component.css'],
-  directives: [ ROUTER_DIRECTIVES ],
+  directives: [ ROUTER_DIRECTIVES, LoaderComponent ],
   providers: [ CollectionsService, CrudService ],
   pipes: [ PluralizePipe, UnCamelPipe ]
 })
@@ -24,6 +25,8 @@ export class ViewCollectionComponent {
   public modelSchema: any;
   public objects: Array<any>;
 
+  @ViewChild('loader') loader: LoaderComponent;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -32,6 +35,9 @@ export class ViewCollectionComponent {
   }
 
   ngOnInit() {
+    this.loader.active = true;
+    this.loader.mode = 'down';
+
     this.route.params.subscribe(params => {
       this.modelName = params['modelName'];
 
@@ -40,7 +46,10 @@ export class ViewCollectionComponent {
         .then( modelSchema => this.modelSchema = modelSchema );
 
       this.collectionsService.search(this.modelName, {})
-        .then( objects => this.objects = objects );
+        .then( objects => {
+          this.objects = objects;
+          this.loader.active = false;
+        });
 
     });
   }

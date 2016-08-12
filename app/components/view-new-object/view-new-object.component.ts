@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CanActivate, Router,
          ActivatedRoute,
          ActivatedRouteSnapshot,
@@ -11,13 +11,14 @@ import { InputStringShortComponent } from '../input-string-short/input-string-sh
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
 import { ButtonPrimaryComponent } from '../button-primary/button-primary.component';
 import { ButtonNeutralComponent } from '../button-neutral/button-neutral.component';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   moduleId: module.id,
   selector: 'view-new-object',
   templateUrl: 'view-new-object.component.html',
   styleUrls: ['view-new-object.component.css'],
-  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent ],
+  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent, LoaderComponent ],
   providers: [ CollectionsService, CrudService ],
   pipes: [ UnCamelPipe ]
 })
@@ -27,6 +28,8 @@ export class ViewNewObjectComponent {
   public objectId: string;
   public modelSchema: any;
   public object: any = {};
+
+  @ViewChild('loader') loader: LoaderComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -45,6 +48,9 @@ export class ViewNewObjectComponent {
   }
 
   save() {
+    this.loader.active = true;
+    this.loader.mode = 'up';
+
     this.crudService.create(this.modelName)
       .then( newObject => {
         this.objectId = (<any>newObject)._id;
@@ -56,6 +62,7 @@ export class ViewNewObjectComponent {
         this.object = newObject;
 
         this.crudService.update(this.modelName, this.objectId, this.object).then( () => {
+          this.loader.active = false;
           this.router.navigate([this.modelName, this.objectId]);
         });
       });

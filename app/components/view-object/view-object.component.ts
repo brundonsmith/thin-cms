@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CanActivate, Router,
          ActivatedRoute,
          ActivatedRouteSnapshot,
@@ -11,13 +11,14 @@ import { InputStringShortComponent } from '../input-string-short/input-string-sh
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
 import { ButtonPrimaryComponent } from '../button-primary/button-primary.component';
 import { ButtonNeutralComponent } from '../button-neutral/button-neutral.component';
+import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   moduleId: module.id,
   selector: 'view-object',
   templateUrl: 'view-object.component.html',
   styleUrls: ['view-object.component.css'],
-  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent ],
+  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent, LoaderComponent ],
   providers: [ CollectionsService, CrudService ],
   pipes: [ UnCamelPipe ]
 })
@@ -28,6 +29,8 @@ export class ViewObjectComponent {
   public modelSchema: any;
   public object: any;
 
+  @ViewChild('loader') loader: LoaderComponent;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,6 +39,9 @@ export class ViewObjectComponent {
   }
 
   ngOnInit() {
+    this.loader.active = true;
+    this.loader.mode = 'down';
+
     this.route.params.subscribe(params => {
       this.modelName = params['modelName'];
       this.objectId = params['objectId'];
@@ -44,20 +50,33 @@ export class ViewObjectComponent {
         .then( modelSchema => this.modelSchema = modelSchema );
 
       this.crudService.read(this.modelName, this.objectId)
-        .then( object => this.object = object );
+        .then( object => {
+          this.object = object;
+          this.loader.active = false;
+        });
 
     });
   }
 
   save() {
+    this.loader.active = true;
+    this.loader.mode = 'up';
+
     this.crudService.update(this.modelName, this.objectId, this.object).then( () => {
+      this.loader.active = false;
       // toast
     });
   }
 
   reset() {
+    this.loader.active = true;
+    this.loader.mode = 'down';
+
     this.crudService.read(this.modelName, this.objectId)
-      .then( object => this.object = object );
+      .then( object => {
+        this.object = object;
+        this.loader.active = false;
+      });
   }
 
   public get pathsArray() {

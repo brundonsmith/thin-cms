@@ -5,6 +5,12 @@
   overflow-y:auto;
 }
 
+loader {
+  position:fixed;
+  top:80px;
+  right:20px;
+}
+
 .table {
   display:flex;
   flex-direction:column;

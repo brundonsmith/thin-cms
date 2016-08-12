@@ -1,0 +1,75 @@
+
+:host {
+  display:flex;
+  flex-direction:row-reverse;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  width: 36px;
+  height:36px;
+  transition:opacity 0.3s ease-out;
+  opacity:0;
+}
+:host.active {
+  opacity:1;
+}
+:host .square {
+  width:10px;
+  height:10px;
+  background-color:#335;
+  margin-left:3px;
+  margin-bottom:3px;
+
+  animation: rotate 1.0s ease-out infinite;
+}
+:host .square:nth-child(3n) {
+  margin-left:0px;
+}
+
+@keyframes rotate {
+  0% { transform:rotateZ(0deg); box-shadow:none; }
+  59% { box-shadow:none; }
+  60% { transform:rotateZ(0deg); box-shadow:0px 0px 3px #5692ff; }
+  100% { transform:rotateZ(-90deg); box-shadow:none; }
+}
+
+
+:host.down {
+}
+:host.up {
+  transform:rotateZ(180deg);
+}
+:host.radial .square:nth-child(9n + 5) {
+  animation-delay:0s;
+}
+:host.radial .square:nth-child(9n + 2),
+:host.radial .square:nth-child(9n + 4),
+:host.radial .square:nth-child(9n + 6),
+:host.radial .square:nth-child(9n + 8) {
+  animation-delay:0.1s;
+}
+:host.radial .square:nth-child(9n + 1),
+:host.radial .square:nth-child(9n + 3),
+:host.radial .square:nth-child(9n + 7),
+:host.radial .square:nth-child(9n + 9) {
+  animation-delay:0.2s;
+}
+
+:host .square:nth-child(9n + 1) {
+  animation-delay:0s;
+}
+:host .square:nth-child(9n + 2),
+:host .square:nth-child(9n + 4) {
+  animation-delay:0.05s;
+}
+:host .square:nth-child(9n + 3),
+:host .square:nth-child(9n + 5),
+:host .square:nth-child(9n + 7) {
+  animation-delay:0.10s;
+}
+:host .square:nth-child(9n + 6),
+:host .square:nth-child(9n + 8) {
+  animation-delay:0.15s;
+}
+:host .square:nth-child(9n + 9) {
+  animation-delay:0.20s;
+}
