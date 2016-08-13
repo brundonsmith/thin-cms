@@ -29,6 +29,15 @@ body {
   font-family:monospace;
   font-size:42px;
 }
+.view-footer {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+  width:100%;
+  max-width:1000px;
+  position:relative;
+  margin-top: 50px;
+}
 
 .form-field {
   display:flex;
@@ -36,7 +45,7 @@ body {
   max-width:1000px;
   flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: top;
   margin-bottom:20px;
 }
 .form-field .label {

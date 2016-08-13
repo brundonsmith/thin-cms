@@ -5,19 +5,19 @@ const noop = () => {
 };
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => InputStringShortComponent),
+    useExisting: forwardRef(() => InputStringLongComponent),
     multi: true
 };
 
 @Component({
   moduleId: module.id,
-  selector: 'input-string-short',
-  templateUrl: 'input-string-short.component.html',
-  styleUrls: ['input-string-short.component.css'],
+  selector: 'input-string-long',
+  templateUrl: 'input-string-long.component.html',
+  styleUrls: ['input-string-long.component.css'],
   inputs: ['size'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class InputStringShortComponent implements ControlValueAccessor {
+export class InputStringLongComponent implements ControlValueAccessor {
 
   public size: number = 20;
 

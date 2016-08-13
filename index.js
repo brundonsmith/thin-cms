@@ -149,10 +149,12 @@ module.exports = {
 var State = require('./test-models/State').State;
 var Address = require('./test-models/Address').Address;
 var Subscription = require('./test-models/Subscription').Subscription;
+var Post = require('./test-models/Post').Post;
 
 module.exports.init('ds059375.mongolab.com:59375/crate', {
   State: State.schema,
   Address: Address.schema,
-  Subscription: Subscription.schema
+  Subscription: Subscription.schema,
+  Post: Post.schema
 });
 //***************************************

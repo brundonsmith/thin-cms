@@ -1,20 +1,25 @@
-<div class="view-heading">new {{modelName}}</div>
+<div class="view-heading">
+  new {{modelName}}
+</div>
 
 <loader #loader ></loader>
 
+<template [ngIf]="object">
 <template ngFor let-path [ngForOf]="pathsArray">
-  <div class="form-field" *ngIf="path.instance == 'String' && object">
+  <div class="form-field">
     <div class="label">{{path.path | unCamel}}</div>
-    <input-string-short [(ngModel)]="object[path.path]"></input-string-short>
-  </div>
-  <div class="form-field" *ngIf="path.instance == 'Number' && object">
-    <div class="label">{{path.path | unCamel}}</div>
-    <input-number [(ngModel)]="object[path.path]"></input-number>
-  </div>
-  <div class="form-field" *ngIf="path.instance == 'Boolean' && object">
-    <div class="label">{{path.path | unCamel}}</div>
-    <input-boolean [(ngModel)]="object[path.path]"></input-boolean>
+
+    <template [ngIf]="path.instance == 'String'">
+      <input-string-long *ngIf="path.options.stringType == 'long'" [(ngModel)]="object[path.path]"></input-string-long>
+      <input-string-short *ngIf="path.options.stringType == 'short' || path.options.stringType == undefined" [(ngModel)]="object[path.path]"></input-string-short>
+    </template>
+    <input-number *ngIf="path.instance == 'Number'" [(ngModel)]="object[path.path]"></input-number>
+    <input-boolean *ngIf="path.instance == 'Boolean'" [(ngModel)]="object[path.path]"></input-boolean>
+    
   </div>
 </template>
+</template>
 
-<button-primary [label]="'Create New ' + modelName" (click)="save()"></button-primary>
+<div class="view-footer">
+  <button-primary [label]="'Create New ' + modelName" (click)="save()"></button-primary>
+</div>

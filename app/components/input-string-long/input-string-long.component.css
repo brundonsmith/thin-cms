@@ -1,0 +1,18 @@
+
+:host {
+  display:inline-block;
+  vertical-align: middle;
+}
+
+textarea {
+  -webkit-appearance:none;
+  border:1px solid #333;
+  font-size:32px;
+  font-family:Roboto;
+  padding:5px;
+  resize: vertical;
+}
+textarea:focus {
+  outline:none;
+  box-shadow:0px 0px 5px #5692ff;
+}

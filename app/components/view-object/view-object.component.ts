@@ -8,6 +8,7 @@ import { CrudService } from '../../services/crud.service';
 import { InputBooleanComponent } from '../input-boolean/input-boolean.component';
 import { InputNumberComponent } from '../input-number/input-number.component';
 import { InputStringShortComponent } from '../input-string-short/input-string-short.component';
+import { InputStringLongComponent } from '../input-string-long/input-string-long.component';
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
 import { ButtonPrimaryComponent } from '../button-primary/button-primary.component';
 import { ButtonNeutralComponent } from '../button-neutral/button-neutral.component';
@@ -18,7 +19,7 @@ import { LoaderComponent } from '../loader/loader.component';
   selector: 'view-object',
   templateUrl: 'view-object.component.html',
   styleUrls: ['view-object.component.css'],
-  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, ButtonPrimaryComponent, ButtonNeutralComponent, LoaderComponent ],
+  directives: [ InputBooleanComponent, InputNumberComponent, InputStringShortComponent, InputStringLongComponent, ButtonPrimaryComponent, ButtonNeutralComponent, LoaderComponent ],
   providers: [ CollectionsService, CrudService ],
   pipes: [ UnCamelPipe ]
 })

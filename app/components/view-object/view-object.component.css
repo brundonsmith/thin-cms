@@ -46,12 +46,8 @@ loader {
   text-overflow: ellipsis;
 }
 
-button-primary {
-  margin-right:20px;
-  margin-top:50px;
-}
-button-secondary {
-  margin-top:50px;
+button-neutral {
+  margin-left:20px;
 }
 /*
 .table .row .cell:not(:last-child)::after {
