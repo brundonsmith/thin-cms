@@ -17,7 +17,7 @@ cms.init(
 
 # Philosophy
 A content management system shouldn't be a monolithic system that you build your app 
-within. It should be a lightweight and friendly management interface you can easily add to whatever 
+within. It should be a lightweight and friendly data management interface that you can easily add to whatever 
 kind of application you want to build. It's only used to manage data, so its only concern should be data.
 
 # Features
