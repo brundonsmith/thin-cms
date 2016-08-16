@@ -37,11 +37,12 @@ loader {
 
 .table .row .cell {
   position:relative;
-  min-width:150px;
+  min-width: 130px;
+  max-height: 74px;
   flex-grow:1;
   flex-shrink:1;
   flex-basis: 0;
-  padding:10px;
+  margin:10px;
   overflow:hidden;
   text-overflow: ellipsis;
 }
@@ -49,10 +50,16 @@ loader {
   display:flex;
   flex-direction:row;
   justify-content:space-around;
-  align-items:center;
+  align-items:flex-start;
   min-width:100px;
   flex-grow:0;
   overflow:visible;
+
+  /* so shadows don't get cut off */
+  margin-top:5px;
+  margin-bottom:5px;
+  padding-top:5px;
+  padding-bottom:5px;
 }
 .table .row .cell.buttons i {
   display:inline-block;
@@ -66,7 +73,7 @@ loader {
   margin:0px 5px;
   cursor:pointer;
   background-color:white;
-  box-shadow: 0px 0px 3px #888;
+  border: 1px solid #888;
 }
 .table .row .cell.buttons i:hover {
   box-shadow:0px 0px 5px #5692ff;
