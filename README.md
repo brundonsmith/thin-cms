@@ -1,5 +1,5 @@
 # Thin CMS
-A lean, mean, headless CMS built in Angular2 that will let you manage any existing Mongoose schemas and then some without designing your project around it.
+A lean, mean, headless CMS built in Angular 2 that will let you manage existing Mongoose data without designing your project around it.
 
 ```
 var cms = require('thin-cms');
@@ -27,7 +27,7 @@ kind of application you want to build. It's only used to manage data, so its onl
 Mongoose schemas will always work in the CMS**, and **extended schemas will 
 always work in Mongoose**
 - Completely independent from application; only requires schemas and database access
-- Can be run on the same server process or a separate one
+- Can be run on the same Node.js process as the application, or on a separate one
 
 # CMS-specific schema property attributes
 Example:
