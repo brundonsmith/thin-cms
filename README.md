@@ -50,7 +50,7 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 
 ## Optional Attribtues for `Number`
 ### `isMoney`: Boolean
-Whether or not this schema property is considered to be money. Affects appearance
+Whether or not this number is considered to be money. Affects appearance
 and decimal precision in the Admin UI.
 
 # Roadmap
