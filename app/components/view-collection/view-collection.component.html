@@ -18,8 +18,8 @@
       <i class="fa fa-pencil" [routerLink]="'/' + modelName + '/' + object._id"></i>
       <i class="fa fa-trash-o" (click)="delete(object._id)"></i>
     </div>
-    <div class="cell" *ngFor="let path of pathsArray" [title]="object[path]">
-      {{ object[path.path] }}
+    <div class="cell" *ngFor="let path of pathsArray" [title]="object[path.path]">
+      {{ path.options.isMoney ? (object[path.path] | currency:'USD':true:'.2-2') : (object[path.path]) }}
     </div>
   </div>
 
