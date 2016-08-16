@@ -46,6 +46,9 @@ loader {
   overflow:hidden;
   text-overflow: ellipsis;
 }
+.table .row .cell.is-money {
+  text-align:right;
+}
 .table .row .cell.buttons {
   display:flex;
   flex-direction:row;
