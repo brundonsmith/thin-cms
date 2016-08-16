@@ -48,6 +48,7 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 
 # Roadmap
 - Site global settings
+- Admin UI theming?
 - Rich text editor
 - Datepicker
 - Sort/search in collection views
