@@ -33,10 +33,10 @@ always work in Mongoose**
 Example:
 ```
 var Post = new Schema({
-    published     : { type: Boolean },
-		title					: { type: String },
-		body        	: { type: String, customProp: 'val' },
-		url         	: { type: String }
+  published : { type: Boolean },
+  title     : { type: String },
+  body      : { type: String, customProp: 'val' },
+  url       : { type: String }
 });
 ```
 
