@@ -47,6 +47,7 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 `'rich'` editor type will be styled HTML, and will need to be rendered as such.
 
 # Roadmap
+- Toast/flash messages for confirmations and notifications
 - Site global settings
 - Admin UI theming?
 - Rich text editor
