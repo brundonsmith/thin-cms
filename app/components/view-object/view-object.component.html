@@ -9,8 +9,11 @@
 
     <div class="field">
       <template [ngIf]="path.instance == 'String'">
-        <input-string-long *ngIf="path.options.stringType == 'long'" [(ngModel)]="object[path.path]"></input-string-long>
-        <input-string-short *ngIf="path.options.stringType == 'short' || path.options.stringType == undefined" [(ngModel)]="object[path.path]"></input-string-short>
+        <input-string-enum *ngIf="path.enumValues" [(ngModel)]="object[path.path]" [options]="path.enumValues"></input-string-enum>
+        <template [ngIf]="!path.enumValues">
+          <input-string-long *ngIf="path.options.stringType == 'long'" [(ngModel)]="object[path.path]"></input-string-long>
+          <input-string-short *ngIf="path.options.stringType == 'short' || path.options.stringType == undefined" [(ngModel)]="object[path.path]"></input-string-short>
+        </template>
       </template>
       <input-number *ngIf="path.instance == 'Number'" [(ngModel)]="object[path.path]" [isMoney]="path.options.isMoney"></input-number>
       <input-boolean *ngIf="path.instance == 'Boolean'" [(ngModel)]="object[path.path]"></input-boolean>

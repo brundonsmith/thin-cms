@@ -4,7 +4,7 @@ var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
 var Subscription = new Schema({
-		subscriptionType		: { type: String },
+		subscriptionType		: { type: String, enum: [ 'Print', 'Digital' ] },
 		subscriptionLength		: { type: Number, min: 1, default: 1 },
 		address			 		: ObjectId,
 		creationDate			: Date,

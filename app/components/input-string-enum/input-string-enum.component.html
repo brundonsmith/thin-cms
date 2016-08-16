@@ -1,0 +1,8 @@
+
+<div class="current-value" (click)="openOptions()">
+  {{ value }}
+  <i class="arrow fa fa-angle-down"></i>
+</div>
+<div class="options">
+  <div class="option" *ngFor="let choice of options" (click)="selectOption(choice)">{{ choice }}</div>
+</div>
