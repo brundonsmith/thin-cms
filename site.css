@@ -44,10 +44,13 @@ body {
   width:100%;
   max-width:1000px;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: top;
+  justify-content: flex-start;
   margin-bottom:20px;
 }
 .form-field .label {
   font-size:32px;
+  width:200px;
+}
+.form-field .field {
+  width:calc(100% - 200px);
 }

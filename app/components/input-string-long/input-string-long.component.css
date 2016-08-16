@@ -1,16 +1,18 @@
 
 :host {
-  display:inline-block;
+  display:block;
   vertical-align: middle;
 }
 
 textarea {
   -webkit-appearance:none;
   border:1px solid #333;
-  font-size:32px;
+  font-size:18px;
   font-family:Roboto;
   padding:5px;
   resize: vertical;
+  width:100%;
+  min-height:200px;
 }
 textarea:focus {
   outline:none;

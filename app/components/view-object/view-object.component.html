@@ -7,13 +7,14 @@
   <div class="form-field">
     <div class="label">{{path.path | unCamel}}</div>
 
-    <template [ngIf]="path.instance == 'String'">
-      <input-string-long *ngIf="path.options.stringType == 'long'" [(ngModel)]="object[path.path]"></input-string-long>
-      <input-string-short *ngIf="path.options.stringType == 'short' || path.options.stringType == undefined" [(ngModel)]="object[path.path]"></input-string-short>
-    </template>
-    <input-number *ngIf="path.instance == 'Number'" [(ngModel)]="object[path.path]"></input-number>
-    <input-boolean *ngIf="path.instance == 'Boolean'" [(ngModel)]="object[path.path]"></input-boolean>
-
+    <div class="field">
+      <template [ngIf]="path.instance == 'String'">
+        <input-string-long *ngIf="path.options.stringType == 'long'" [(ngModel)]="object[path.path]"></input-string-long>
+        <input-string-short *ngIf="path.options.stringType == 'short' || path.options.stringType == undefined" [(ngModel)]="object[path.path]"></input-string-short>
+      </template>
+      <input-number *ngIf="path.instance == 'Number'" [(ngModel)]="object[path.path]"></input-number>
+      <input-boolean *ngIf="path.instance == 'Boolean'" [(ngModel)]="object[path.path]"></input-boolean>
+    </div>
   </div>
 </template>
 </template>
