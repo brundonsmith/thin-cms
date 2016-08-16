@@ -43,6 +43,7 @@ module.exports = {
     }));
 
     //************ TESTING *****************
+    // Automatically log in with test credentials on every request
     app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "http://localhost:3000");
       res.header("Access-Control-Allow-Credentials", "true");
@@ -146,6 +147,7 @@ module.exports = {
 };
 
 //************ TESTING *****************
+// Load test models and init
 var State = require('./test-models/State').State;
 var Address = require('./test-models/Address').Address;
 var Subscription = require('./test-models/Subscription').Subscription;
