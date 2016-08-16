@@ -50,5 +50,7 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 - Site global settings
 - Rich text editor
 - Datepicker
+- Sort/search in collection views
+- Pagination/infinite scroll in collection views
 - Intelligent support for Mongoose validation attributes
 - Support for object relationship properties
