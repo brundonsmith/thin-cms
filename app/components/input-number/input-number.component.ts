@@ -26,10 +26,18 @@ export class InputNumberComponent implements ControlValueAccessor {
   @HostBinding('class.is-money') get money() { return this.isMoney };
 
   onClickUp() {
-    this.value = Number(this.value) + Number(this.step);
+    if(typeof this.step !== 'undefined') {
+      this.value = Number(this.value) + Number(this.step);
+    } else {
+      this.value = Number(this.value) + 1;
+    }
   }
   onClickDown() {
-    this.value = Number(this.value) - Number(this.step);
+    if(typeof this.step !== 'undefined') {
+      this.value = Number(this.value) - Number(this.step);
+    } else {
+      this.value = Number(this.value) - 1;
+    }
   }
 
   ngOnInit() {
@@ -39,7 +47,7 @@ export class InputNumberComponent implements ControlValueAccessor {
   }
 
   countDecimalDigits(num) {
-    if(Math.floor(num) === num) {
+    if(!num || Math.floor(num) === num) {
       return 0;
     } else {
       return num.toString().split(".")[1].length || 0;
@@ -58,10 +66,15 @@ export class InputNumberComponent implements ControlValueAccessor {
 
   //get accessor
   get value(): any {
-    if(!this.innerValue) {
+    if(typeof this.innerValue === 'undefined') {
       this.innerValue = '0';
     }
-    return Number(this.innerValue).toFixed(this.countDecimalDigits(this.step));
+
+    if(typeof this.step !== 'undefined') {
+      return Number(this.innerValue).toFixed(this.countDecimalDigits(this.step));
+    } else {
+      return this.innerValue;
+    }
   };
 
   //set accessor including call the onchange callback
@@ -78,9 +91,12 @@ export class InputNumberComponent implements ControlValueAccessor {
     var v = Number(this.innerValue);
 
     // round to step
-    v = Math.floor((v / this.step) + .5) * this.step;
-
-    this.innerValue = v.toFixed(this.countDecimalDigits(this.step));
+    if(typeof this.step !== 'undefined') {
+      v = Math.floor((v / this.step) + .5) * this.step;
+      this.innerValue = v.toFixed(this.countDecimalDigits(this.step));
+    } else {
+      this.innerValue = v;
+    }
 
     this.onTouchedCallback();
   }
