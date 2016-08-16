@@ -40,7 +40,7 @@ var Post = new Schema({
 });
 ```
 
-## Optional Attribtues for `String`
+## Optional Attributes for `String`
 ### `stringType`: String
 Value can be `'short'`, `'long'`, or `'rich'`. Defaults to `'short'` when 
 no value given. Can be added to properties of type `String` to specify what kind of input 
@@ -48,12 +48,12 @@ should appear in the editor. `'short'` yields a single-ling text input, `'long'`
 text area input, and `'rich'` yields a rich text editor. Note that text created by the 
 `'rich'` editor type will be styled HTML, and will need to be rendered as such.
 
-## Optional Attribtues for `Number`
+## Optional Attributes for `Number`
 ### `isMoney`: Boolean
 Whether or not this number is considered to be money. Affects appearance
 and decimal precision in the Admin UI.
 
-# Roadmap
+# Future features
 - Toast/flash messages for confirmations and notifications
 - Site global settings
 - Admin UI theming?
