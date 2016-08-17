@@ -53,13 +53,18 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 Whether or not this number is considered to be money. Affects appearance
 and decimal precision in the Admin UI.
 
-# Future features
+# Things I'm working on
 - Toast/flash messages for confirmations and notifications
 - Site global settings
 - Admin UI theming?
-- Rich text editor
+- WYSIWYG editor
 - Datepicker
 - Sort/search in collection views
 - Pagination/infinite scroll in collection views
-- Intelligent support for Mongoose validation attributes
+- Client-side visuals for Mongoose validation attributes
 - Support for object relationship properties
+
+# Things that would be neat
+- Support for non-Mongo databases
+
+If anyone feels like grabbing a feature off of one of these lists - especially the "neat" list - and developing it and submitting a pull request, I'd officially certify you as a Really Cool Person.
