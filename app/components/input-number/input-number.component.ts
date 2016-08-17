@@ -19,7 +19,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 })
 export class InputNumberComponent implements ControlValueAccessor {
 
-  public step: number;
+  public step: any;
   public size: number = 8;
   public isMoney: boolean;
 
@@ -47,7 +47,7 @@ export class InputNumberComponent implements ControlValueAccessor {
   }
 
   countDecimalDigits(num) {
-    if(!num || Math.floor(num) === num) {
+    if(!num || Math.floor(num) == num) {
       return 0;
     } else {
       return num.toString().split(".")[1].length || 0;
@@ -57,7 +57,7 @@ export class InputNumberComponent implements ControlValueAccessor {
   ////// To make ngModel work
 
   //The internal data model
-  private innerValue: string;
+  private innerValue: any;
 
   //Placeholders for the callbacks which are later providesd
   //by the Control Value Accessor
