@@ -14,13 +14,14 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   selector: 'input-string-short',
   templateUrl: 'input-string-short.component.html',
   styleUrls: ['input-string-short.component.css'],
-  inputs: ['size'],
+  inputs: ['size', 'placeholder', 'type'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 export class InputStringShortComponent implements ControlValueAccessor {
 
   public size: number = 20;
-
+  public placeholder: string;
+  public type: string;
 
   ////// To make ngModel work
 
