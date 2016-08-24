@@ -1,12 +1,12 @@
 
 <nav-top></nav-top>
-<div class="main-container" [class.left-nav-collapsed]="router.url === '/login'">
-  <nav-left>
+<div class="main-container" [class.left-nav-open]="router.url !== '/login'">
+  <nav-left #navLeft>
     <nav-link [title]="'Home'" [routerLink]="'/'" [icon]="'home'"></nav-link>
     <nav-link [title]="'Settings'" [routerLink]="'/settings'" [icon]="'gear'"></nav-link>
     <nav-divider></nav-divider>
   </nav-left>
   <div class="view-container">
-    <router-outlet (loginSuccess)="onLoginSuccess()"></router-outlet>
+    <router-outlet (loginSuccess)="onLoginSuccess()" (activateEvents)="onLoginSuccess()"></router-outlet>
   </div>
 </div>

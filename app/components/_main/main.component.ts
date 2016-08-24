@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { NavTopComponent } from '../nav-top/nav-top.component';
@@ -19,12 +19,18 @@ export class MainComponent {
 
   public loggedIn: boolean;
 
+  @ViewChild('navLeft')
+  navLeft: NavLeftComponent;
+
   constructor(
     private router: Router
   ) {
+    router.events.subscribe((event) => {
+      this.onViewChange();
+    });
   }
 
-  onLoginSuccess() {
-    
+  onViewChange() {
+    this.navLeft.refreshCollections();
   }
 }

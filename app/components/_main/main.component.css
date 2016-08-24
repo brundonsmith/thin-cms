@@ -24,12 +24,12 @@
 
 nav-left {
   position:absolute;
-  left:0px;
-}
-.main-container.left-nav-collapsed nav-left {
   left:-200px;
 }
-.main-container.left-nav-collapsed .view-container {
+.main-container:not(.left-nav-open).view-container {
   padding-left:0px;
   width:100%;
+}
+.main-container.left-nav-open nav-left {
+  left:0px;
 }

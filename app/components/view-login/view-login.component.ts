@@ -10,15 +10,12 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'view-login.component.html',
   styleUrls: ['view-login.component.css'],
   directives: [ InputStringShortComponent, ButtonPrimaryComponent ],
-  providers: [ AuthService ],
-  outputs: [ '' ]
+  providers: [ AuthService ]
 })
 export class ViewLoginComponent {
 
   username: string;
   password: string;
-
-  @Output() loginSuccess = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -30,7 +27,6 @@ export class ViewLoginComponent {
       .then( response => {
         if(response.loginSuccess) {
           this.router.navigate(['/']);
-          //this.loginSuccess.emit();
         } else {
           // toast message
         }

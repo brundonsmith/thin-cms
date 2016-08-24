@@ -19,6 +19,10 @@ export class NavLeftComponent implements OnInit {
   constructor(private collectionsService: CollectionsService) { }
 
   ngOnInit() {
+    this.refreshCollections();
+  }
+
+  public refreshCollections() {
     this.collectionsService.getAllCollections()
       .then( collections => this.collections = collections );
   }
