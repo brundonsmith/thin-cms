@@ -39,7 +39,6 @@ export class MainComponent implements OnInit {
   }
 
   refreshCollections() {
-    console.log('refreshCollections()');
     this.collectionsService.getAllCollections()
       .then( collections => this.collections = collections );
   }

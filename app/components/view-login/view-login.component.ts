@@ -33,4 +33,10 @@ export class ViewLoginComponent {
       });
   }
 
+  onKey(event: KeyboardEvent) {
+    if(event.keyCode == 13) {
+      this.login();
+    }
+  }
+
 }

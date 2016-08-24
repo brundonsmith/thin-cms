@@ -1,5 +1,5 @@
 
-<div class="login-form">
+<div class="login-form" (keydown)="onKey($event)">
   <h1>Log in to My Site</h1>
   <div class="form-field">
     <input-string-short class="field" [(ngModel)]="username" [placeholder]="'username'"></input-string-short>
