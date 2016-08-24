@@ -40,20 +40,25 @@ body {
 }
 
 .form-field {
-  display:flex;
+  display:block;
   width:100%;
   max-width:1000px;
-  flex-direction: row;
-  justify-content: flex-start;
   margin-bottom:20px;
+}
+.form-field .label,
+.form-field .field {
+  display:inline-block;
+  vertical-align:top;
 }
 .form-field .label {
   font-size:32px;
   width: 300px;
   padding-right: 50px;
+  margin-bottom: 5px;
 }
 .form-field .field {
-  width:calc(100% - 200px);
+  min-width:300px;
+  width:calc(100% - 305px);
 }
 
 .form-buttons {

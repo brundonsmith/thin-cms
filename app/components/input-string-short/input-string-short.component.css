@@ -2,6 +2,8 @@
 :host {
   display:inline-block;
   vertical-align: middle;
+  width:100%;
+  max-width:300px;
 }
 
 input {
@@ -10,6 +12,7 @@ input {
   font-size:32px;
   font-family:Roboto;
   padding:10px;
+  width:100%;
 }
 input:focus {
   outline:none;
