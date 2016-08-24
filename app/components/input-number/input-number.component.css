@@ -24,7 +24,7 @@ input {
   border:none;
   font-family:Roboto;
   text-align:right;
-  padding:5px;
+  padding:10px;
   font-size:32px;
 }
 input:focus {

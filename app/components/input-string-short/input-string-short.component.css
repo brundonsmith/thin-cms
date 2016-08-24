@@ -9,7 +9,7 @@ input {
   border:1px solid #333;
   font-size:32px;
   font-family:Roboto;
-  padding:5px;
+  padding:10px;
 }
 input:focus {
   outline:none;
