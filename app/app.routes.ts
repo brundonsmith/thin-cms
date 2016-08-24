@@ -1,5 +1,6 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
 import { ViewHomeComponent } from './components/view-home/view-home.component';
+import { ViewLoginComponent } from './components/view-login/view-login.component';
 import { ViewSettingsComponent } from './components/view-settings/view-settings.component';
 import { ViewCollectionComponent } from './components/view-collection/view-collection.component';
 import { ViewObjectComponent } from './components/view-object/view-object.component';
@@ -9,6 +10,10 @@ const routes: RouterConfig = [
   {
     path: '',
     component: ViewHomeComponent
+  },
+  {
+    path: 'login',
+    component: ViewLoginComponent
   },
   {
     path: 'settings',

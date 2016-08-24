@@ -42,8 +42,17 @@ module.exports = {
       }
     }));
 
+    app.use('/api*', function(req, res, next) {
+      if(typeof mongooseConnections[req.sessionID] === 'undefined' && req.originalUrl !== '/api/login') {
+        res.status(401).send("Error: User is not logged in");
+      } else {
+        next();
+      }
+    });
+
     //************ TESTING *****************
     // Automatically log in with test credentials on every request
+    /*
     app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "http://localhost:3000");
       res.header("Access-Control-Allow-Credentials", "true");
@@ -80,23 +89,21 @@ module.exports = {
 
       next();
     });
+    */
     //***************************************
 
     // load routes
     var routes = requireDir(__dirname + '/rest-routes');
 
     // routes
-    app.get('/login', function(req, res) {
-    	res.sendFile(__dirname + '/views/login.html');
-    });
-    app.post('/login', function(req, res) {
+    app.put('/api/login', function(req, res) {
     	var newConnection = mongoose.createConnection(app.get('dbpath'), {
     			user: req.body.username,
     			pass: req.body.password
     		},
     		function(err) {
     			if(err) {
-    				res.send('{"message": "error"}');
+    				res.status(401).send('{ "loginSuccess": "false" }');
     			}
     		}
     	);
@@ -106,10 +113,10 @@ module.exports = {
     			connection: newConnection,
     			models: {}
     		};
-    		res.send('{"message": "success"}');
+    		res.send('{ "loginSuccess": "true" }');
     	});
     });
-    app.post('/logout', function(req, res) {
+    app.put('/api/logout', function(req, res) {
     	delete mongooseConnections[req.sessionID];
     	res.send();
     });
@@ -125,8 +132,19 @@ module.exports = {
     app.delete('/api/:modelName/:objectId', routes.crud.delete);
     app.get('/api/:modelName', routes.crud.readSchema);
 
+    // login screen
+    app.get('/login', function(req, res) {
+      console.log('visited login');
+      res.sendFile(__dirname + '/app.html');
+    });
+
+    // all other views
     app.get('/*', function(req, res) {
-      res.sendFile(__dirname + '/index.html');
+      if(typeof mongooseConnections[req.sessionID] === 'undefined') {
+        res.redirect('/login');
+      } else {
+        res.sendFile(__dirname + '/app.html');
+      }
     });
 
     // process

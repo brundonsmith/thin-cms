@@ -1,4 +1,16 @@
 
+
+.loader-container {
+  display:flex;
+  justify-content:center;
+  height: 100vh;
+  background-color:#eee;
+}
+.loader-container loader {
+  transform: scale(1.5);
+  margin-top:40%;
+}
+
 .main-container {
   display:flex;
   flex-direction:row;
@@ -7,4 +19,17 @@
 
 .view-container {
   width:calc(100% - 200px);
+  padding-left: 200px;
+}
+
+nav-left {
+  position:absolute;
+  left:0px;
+}
+.main-container.left-nav-collapsed nav-left {
+  left:-200px;
+}
+.main-container.left-nav-collapsed .view-container {
+  padding-left:0px;
+  width:100%;
 }

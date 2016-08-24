@@ -1,0 +1,23 @@
+:host {
+  display:flex;
+  height: 75%;
+  padding:40px;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-form {
+  background-color:#333;
+  color:#eee;
+  padding:40px;
+}
+.login-form h1 {
+  margin-top:0px;
+}
+.login-form .form-buttons {
+  margin-top:30px;
+}
+.login-form .form-buttons button-primary {
+  min-width: 200px;
+  padding: 15px;
+}

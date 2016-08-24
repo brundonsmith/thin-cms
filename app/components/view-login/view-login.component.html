@@ -1,0 +1,13 @@
+
+<div class="login-form">
+  <h1>Log in to My Site</h1>
+  <div class="form-field">
+    <input-string-short class="field" [(ngModel)]="username" [placeholder]="'username'"></input-string-short>
+  </div>
+  <div class="form-field">
+    <input-string-short class="field" [(ngModel)]="password" [placeholder]="'password'" [type]="'password'"></input-string-short>
+  </div>
+  <div class="form-buttons">
+    <button-primary [label]="'Log in'" (click)="login()"></button-primary>
+  </div>
+</div>

@@ -55,3 +55,12 @@ body {
 .form-field .field {
   width:calc(100% - 200px);
 }
+
+.form-buttons {
+  display:flex;
+  width:100%;
+  max-width:1000px;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top:20px;
+}
