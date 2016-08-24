@@ -58,7 +58,7 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 - Security (do NOT use in production outside a VPN right now; passwords are sent in plaintext)
 - Site global settings
 - Admin UI theming?
-- WYSIWYG editor
+- WYSIWYG editor (for rich text fields)
 - Datepicker
 - Sort/search in collection views
 - Pagination/infinite scroll in collection views
