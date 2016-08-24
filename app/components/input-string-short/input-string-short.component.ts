@@ -20,7 +20,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 export class InputStringShortComponent implements ControlValueAccessor {
 
   public size: number = 20;
-  public placeholder: string;
+  public placeholder: string = '';
   public type: string;
 
   ////// To make ngModel work

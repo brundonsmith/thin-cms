@@ -12,5 +12,5 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class NavLinkComponent {
   public title: string;
   public icon: string;
-  public routerLink: string;
+  public routerLink: string = '#';
 }

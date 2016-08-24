@@ -16,6 +16,11 @@ export class AuthService {
                .then(response => response.json())
                .catch(this.handleError);
   }
+  logout() {
+    return this.http.put(this.apiBaseUrl + '/logout', { withCredentials: true })
+               .toPromise()
+               .catch(this.handleError);
+  }
 
   private handleError(error: any) {
     console.error('An error occurred', error);

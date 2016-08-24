@@ -9,22 +9,8 @@ import { PluralizePipe } from '../../pipes/pluralize.pipe';
   selector: 'nav-left',
   templateUrl: 'nav-left.component.html',
   styleUrls: ['nav-left.component.css'],
-  directives: [ ROUTER_DIRECTIVES, NavSectionComponent ],
-  providers: [ CollectionsService ],
-  pipes: [ PluralizePipe ]
+  directives: [ ROUTER_DIRECTIVES ]
 })
-export class NavLeftComponent implements OnInit {
-  collections: any;
-
-  constructor(private collectionsService: CollectionsService) { }
-
-  ngOnInit() {
-    this.refreshCollections();
-  }
-
-  public refreshCollections() {
-    this.collectionsService.getAllCollections()
-      .then( collections => this.collections = collections );
-  }
+export class NavLeftComponent {
 
 }
