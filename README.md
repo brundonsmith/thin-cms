@@ -1,5 +1,5 @@
 # Thin CMS
-A lean, mean, headless CMS built in Angular 2 that will let you manage existing Mongoose data without designing your project around it.
+A lean, mean, headless CMS built with Angular 2 that will let you manage existing Mongoose data without designing your project around it.
 
 ```
 var cms = require('thin-cms');
@@ -40,6 +40,11 @@ var Post = new Schema({
 });
 ```
 
+## Optional Attributes for `Number`
+### `isMoney`: Boolean
+Whether or not this number is considered to be money. Affects appearance
+and decimal precision in the Admin UI.
+
 ## Optional Attributes for `String`
 ### `stringType`: String
 Value can be `'short'`, `'long'`, or `'rich'`. Defaults to `'short'` when 
@@ -48,16 +53,12 @@ should appear in the editor. `'short'` yields a single-ling text input, `'long'`
 text area input, and `'rich'` yields a rich text editor. Note that text created by the 
 `'rich'` editor type will be styled HTML, and will need to be rendered as such.
 
-## Optional Attributes for `Number`
-### `isMoney`: Boolean
-Whether or not this number is considered to be money. Affects appearance
-and decimal precision in the Admin UI.
-
 # Things I'm working on
 - Toast/flash messages for confirmations and notifications
+- Security (do NOT use in production outside a VPN right now; passwords are sent in plaintext)
 - Site global settings
 - Admin UI theming?
-- WYSIWYG editor
+- WYSIWYG editor (for rich text fields)
 - Datepicker
 - Sort/search in collection views
 - Pagination/infinite scroll in collection views
