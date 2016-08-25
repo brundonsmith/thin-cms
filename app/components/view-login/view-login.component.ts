@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { InputStringShortComponent } from '../input-string-short/input-string-short.component';
 import { ButtonPrimaryComponent } from '../button-primary/button-primary.component';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   moduleId: module.id,
@@ -19,7 +20,8 @@ export class ViewLoginComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private notificationService: NotificationService) {
   }
 
   login() {
@@ -28,7 +30,7 @@ export class ViewLoginComponent {
         if(response.loginSuccess) {
           this.router.navigate(['/']);
         } else {
-          // toast message
+          //this.notificationService.showNotification('Failed to login with those credentials', 'error');
         }
       });
   }

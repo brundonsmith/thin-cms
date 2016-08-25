@@ -7,6 +7,7 @@ import { NavSectionComponent } from '../nav-section/nav-section.component';
 import { NavLinkComponent } from '../nav-link/nav-link.component';
 import { NavDividerComponent } from '../nav-divider/nav-divider.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { ToastNotificationComponent } from '../toast-notification/toast-notification.component';
 import { CollectionsService } from '../../services/collections.service';
 import { AuthService } from '../../services/auth.service';
 import { PluralizePipe } from '../../pipes/pluralize.pipe';
@@ -16,7 +17,7 @@ import { PluralizePipe } from '../../pipes/pluralize.pipe';
   selector: 'my-app',
   templateUrl: 'main.component.html',
   styleUrls: ['main.component.css'],
-  directives: [ ROUTER_DIRECTIVES, NavTopComponent, NavLeftComponent, NavSectionComponent, NavLinkComponent, NavDividerComponent, LoaderComponent ],
+  directives: [ ROUTER_DIRECTIVES, NavTopComponent, NavLeftComponent, NavSectionComponent, NavLinkComponent, NavDividerComponent, LoaderComponent, ToastNotificationComponent ],
   providers: [ CollectionsService, AuthService ],
   pipes: [ PluralizePipe ]
 })

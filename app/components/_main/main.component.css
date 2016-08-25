@@ -33,3 +33,9 @@ nav-left {
 .main-container.left-nav-open nav-left {
   left:0px;
 }
+
+toast-notification {
+  position:absolute;
+  right:50px;
+  bottom:50px;
+}

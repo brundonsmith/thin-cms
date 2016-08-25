@@ -5,6 +5,7 @@ import { CanActivate, Router,
          RouterStateSnapshot }    from '@angular/router';
 import { CollectionsService } from '../../services/collections.service';
 import { CrudService } from '../../services/crud.service';
+import { NotificationService } from '../../services/notification.service';
 import { InputBooleanComponent } from '../input-boolean/input-boolean.component';
 import { InputNumberComponent } from '../input-number/input-number.component';
 import { InputStringShortComponent } from '../input-string-short/input-string-short.component';
@@ -37,7 +38,8 @@ export class ViewObjectComponent {
     private route: ActivatedRoute,
     private router: Router,
     private collectionsService: CollectionsService,
-    private crudService: CrudService) {
+    private crudService: CrudService,
+    private notificationService: NotificationService) {
   }
 
   ngOnInit() {
@@ -66,7 +68,7 @@ export class ViewObjectComponent {
 
     this.crudService.update(this.modelName, this.objectId, this.object).then( () => {
       this.loader.active = false;
-      // toast
+      this.notificationService.showNotification('Saved!', 'confirm');
     });
   }
 
