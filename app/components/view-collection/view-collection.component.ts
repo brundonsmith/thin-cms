@@ -5,6 +5,7 @@ import { CanActivate, Router,
          RouterStateSnapshot }    from '@angular/router';
 import { CollectionsService } from '../../services/collections.service';
 import { CrudService } from '../../services/crud.service';
+import { NotificationService } from '../../services/notification.service';
 import { PluralizePipe } from '../../pipes/pluralize.pipe';
 import { UnCamelPipe } from '../../pipes/un-camel.pipe';
 import { ROUTER_DIRECTIVES } from '@angular/router';
@@ -31,7 +32,8 @@ export class ViewCollectionComponent {
     private route: ActivatedRoute,
     private router: Router,
     private collectionsService: CollectionsService,
-    private crudService: CrudService) {
+    private crudService: CrudService,
+    private notificationService: NotificationService) {
   }
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class ViewCollectionComponent {
   delete(objectId) {
     this.crudService.delete(this.modelName, objectId)
       .then(() => {
+        this.notificationService.showNotification('Item deleted', 'neutral');
         this.collectionsService.search(this.modelName, {})
           .then( objects => this.objects = objects );
       });
