@@ -55,7 +55,7 @@
   border:none;
 }
 :host.is-open .options {
-  box-shadow:0px 0px 5px #5692ff;
+  box-shadow:0px 0px 10px #5692ff;
 
 }
 :host:not(.is-open) .option {
