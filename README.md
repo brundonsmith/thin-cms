@@ -1,4 +1,6 @@
 # Thin CMS
+![Alt text](/screen-capture.png?raw=true)
+
 A lean, mean, headless CMS built with Angular 2 that will let you manage existing Mongoose data without designing your project around it.
 
 ```
