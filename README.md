@@ -54,16 +54,16 @@ text area input, and `'rich'` yields a rich text editor. Note that text created 
 `'rich'` editor type will be styled HTML, and will need to be rendered as such.
 
 # Things I'm working on
-- Toast/flash messages for confirmations and notifications
-- Security (do NOT use in production outside a VPN right now; passwords are sent in plaintext)
-- Site global settings
-- Admin UI theming?
-- WYSIWYG editor (for rich text fields)
-- Datepicker
 - Sort/search in collection views
+- Datepicker
+- WYSIWYG editor (for rich text fields)
+- Security (do NOT use Thin CMS in production outside a VPN right now; passwords are sent in plaintext)
+- Site global settings
 - Pagination/infinite scroll in collection views
 - Client-side visuals for Mongoose validation attributes
 - Support for object relationship properties
+- Admin UI theming?
+
 
 # Things that would be neat
 - Support for non-Mongo databases
