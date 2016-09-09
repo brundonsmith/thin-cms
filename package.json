@@ -1,16 +1,16 @@
 {
   "name": "thin-cms",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A lean, mean, headless CMS built in Angular2 that will let you manage any existing Mongoose schemas and then some without designing your project around it.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
     "dev": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "typings install ; tsc",
+    "postinstall": "npm run typings ; npm run tsc",
+    "start": "node index.js",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "typings": "typings"
+    "typings": "typings install"
   },
   "keywords": [
     "cms",
@@ -44,12 +44,12 @@
     "require-dir": "^0.3.0",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.12"
+    "zone.js": "^0.6.12",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0",
-    "typescript": "^1.8.10",
-    "typings": "^1.0.4"
+    "lite-server": "^2.2.0"
   }
 }

@@ -16,6 +16,7 @@ module.exports = {
     // application
     var app = express();
     var oneDay = 8.64e+7;
+    app.use(express.static( process.cwd() + '/', { maxAge: oneDay }));
     app.use(express.static( __dirname + '/', { maxAge: oneDay }));
 
     // Use parameters
@@ -156,7 +157,7 @@ module.exports = {
     });
 
     app.listen(port);
-    console.log('Material CMS listening on port ' + port + '...');
+    console.log('Thin CMS listening on port ' + port + '...');
     if(typeof schemas === 'undefined') {
       console.warn('WARNING: No mongoose schemas passed to Material CMS');
     }
@@ -166,6 +167,7 @@ module.exports = {
 
 //************ TESTING *****************
 // Load test models and init
+/*
 var State = require('./test-models/State').State;
 var Address = require('./test-models/Address').Address;
 var Subscription = require('./test-models/Subscription').Subscription;
@@ -177,4 +179,5 @@ module.exports.init('ds059375.mongolab.com:59375/crate', {
   Subscription: Subscription.schema,
   Post: Post.schema
 });
+*/
 //***************************************
