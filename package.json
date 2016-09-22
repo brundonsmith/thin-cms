@@ -1,6 +1,6 @@
 {
   "name": "thin-cms",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A lean, mean, headless CMS built in Angular2 that will let you manage any existing Mongoose schemas and then some without designing your project around it.",
   "main": "index.js",
   "scripts": {
