@@ -135,7 +135,6 @@ module.exports = {
 
     // login screen
     app.get('/login', function(req, res) {
-      console.log('visited login');
       res.sendFile(__dirname + '/app.html');
     });
 

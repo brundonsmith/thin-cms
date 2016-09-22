@@ -93,7 +93,7 @@ export class ViewObjectComponent {
         }
       }
     }
-console.log(paths);
+
     return paths;
   }
 }
