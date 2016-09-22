@@ -69,6 +69,14 @@ loader {
   overflow:hidden;
   text-overflow: ellipsis;
 }
+.table .row .cell.is-hidden {
+  border: none;
+  width: 0px;
+  overflow: hidden;
+  flex-grow: 0;
+  min-width: 0px;
+  padding: 0px;
+}
 .table .row .cell::after {
   content:'';
   position:absolute;
@@ -86,7 +94,7 @@ loader {
   background-position:top;
   background-size:100% 150px;
 }
-.table .row .cell:not(:last-child) {
+.table .row .cell:not(:last-child):not(.is-hidden) {
   border-right:1px solid #ccc;
 }
 .table .row .cell.is-money {

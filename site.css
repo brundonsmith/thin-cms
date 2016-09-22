@@ -45,6 +45,11 @@ body {
   max-width:1000px;
   margin-bottom:20px;
 }
+.form-field.is-hidden {
+  height: 0px;
+  overflow: hidden;
+  margin: 0;
+}
 .form-field .label,
 .form-field .field {
   display:inline-block;

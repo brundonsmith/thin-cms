@@ -6,7 +6,7 @@
 
 <template [ngIf]="object">
 <template ngFor let-path [ngForOf]="pathsArray">
-  <div class="form-field">
+  <div class="form-field" [class.is-hidden]="path.options.hidden">
     <div class="label">{{path.path | unCamel}}</div>
 
     <div class="field">

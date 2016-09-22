@@ -8,7 +8,7 @@
     <div class="cell buttons">
       Actions
     </div>
-    <div class="cell" *ngFor="let path of pathsArray">
+    <div class="cell" *ngFor="let path of pathsArray" [class.is-hidden]="path.options.hidden">
       {{ path.path | unCamel }}
     </div>
   </div>
@@ -19,7 +19,7 @@
         <i class="fa fa-pencil" [routerLink]="'/' + modelName + '/' + object._id"></i>
         <i class="fa fa-trash-o" (click)="delete(object._id)"></i>
       </div>
-      <div class="cell" *ngFor="let path of pathsArray" [title]="object[path.path]" [class.is-money]="path.options.isMoney">
+      <div class="cell" *ngFor="let path of pathsArray" [title]="object[path.path]" [class.is-money]="path.options.isMoney" [class.is-hidden]="path.options.hidden">
         {{ path.options.isMoney ? (object[path.path] | currency:'USD':true:'.2-2') : (object[path.path]) }}
       </div>
     </div>
