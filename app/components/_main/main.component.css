@@ -27,7 +27,7 @@ nav-left {
   position:absolute;
   left:-200px;
 }
-.main-container:not(.left-nav-open).view-container {
+.main-container:not(.left-nav-open) .view-container {
   padding-left:0px;
   width:100%;
 }

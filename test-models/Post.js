@@ -25,8 +25,8 @@ var Post = new Schema({
 Post = mongoose.model('Post', Post);
 
 Post.schema.pre('update', function(next) {
-  var newValues = this._update['$set']
-
+  var newValues = this._update['$set'];
+  
   this.update({
     titleSlug: slug(newValues.title)
   });

@@ -51,48 +51,6 @@ module.exports = {
       }
     });
 
-    //************ TESTING *****************
-    // Automatically log in with test credentials on every request
-    /*
-    app.use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-      res.header("Access-Control-Allow-Credentials", "true");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, X-XSRF-TOKEN");
-
-      if(!req.sessionID || !mongooseConnections[req.sessionID]) {
-        console.log('CREATING MONGOOSE CONNECT');
-        var newConnection = mongoose.createConnection(app.get('dbpath'),
-          {
-            user:'admin2',
-            pass:'pass'
-          },
-          function(err) {
-            if(err) {
-              console.log('ERROR LOGGING INTO MONGO');
-            }
-          }
-        );
-
-        console.log('MONGOOSE CONNECT ATTEMPT STARTED');
-
-        newConnection.once('connected', function(){
-          console.log('MONGOOSE CONNECTED');
-          mongooseConnections[req.sessionID] = {
-            connection: newConnection,
-            models: {}
-          };
-        });
-        newConnection.once('error', function(err){
-          console.log('MONGOOSE FAILED TO CONNECT:');
-          console.log(err);
-        });
-      }
-
-      next();
-    });
-    */
-    //***************************************
-
     // load routes
     var routes = requireDir(__dirname + '/rest-routes');
 
