@@ -1,3 +1,5 @@
+### _Note: This project is no longer under active development_
+
 # Thin CMS
 ![Alt text](/screen-capture.png?raw=true)
 
